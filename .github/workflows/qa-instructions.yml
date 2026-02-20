@@ -1,0 +1,16 @@
+name: QA Instructions
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  qa-instructions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: slifty/qa-instructions-action@test-run
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          anthropic-api-key: ${{ secrets.CLAUDE_API_KEY }}
